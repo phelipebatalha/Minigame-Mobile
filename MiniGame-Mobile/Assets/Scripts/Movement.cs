@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
     {
         Vector3 dir = Vector3.zero;
 
-        dir.x = Input.acceleration.y;
-        dir.z = -Input.acceleration.x;
+        dir.x = -Input.acceleration.x;
+        dir.z = Input.acceleration.y;
 
         if(dir.sqrMagnitude > 1)
             dir.Normalize();
