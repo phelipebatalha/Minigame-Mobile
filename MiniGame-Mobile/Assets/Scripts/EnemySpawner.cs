@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        Touch();
+        //Touch();
         if (canSpawn)
         {
             //if (Input.GetKeyDown(KeyCode.Space))
