@@ -175,6 +175,12 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
          if(Input.touchCount == 1)
 		{
             Debug.Log("Entrei");
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                Debug.Log("Inicio Swipe");
+                startingTouch = Input.GetTouch(0).position;
+                isSwipping = true;
+            }
 			if (isSwipping)
 			{
                 Debug.Log("Entrei 1");
@@ -197,17 +203,25 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
 					}
                     isSwipping = false;
                 }
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
-                {
-                    startingTouch = Input.GetTouch(0).position;
-                    isSwipping = true;
-                }
+                
                 else if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     isSwipping = false;
+                    Debug.Log("Fim Swipe");
                 }
             }
         }
+
+        //if (Input.touchCount > 0)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+        //    if(touch.phase == TouchPhase.Began){
+        //        Debug.Log("Atque");
+        //    }
+        //    if(touch.phase == TouchPhase.Ended){
+        //        Debug.Log("Fim Ataque");
+        //    }
+        //}
     }
     void Update()
     {        
