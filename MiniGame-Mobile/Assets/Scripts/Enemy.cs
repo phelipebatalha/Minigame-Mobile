@@ -50,23 +50,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision other)
-    //{
-    //    if(other.gameObject.CompareTag("Player"))
-    //    {
-    //        //LevelManager.manager.GameOver();
-    //        Destroy(other.gameObject);
-    //        target = null;
-    //    }
-    //    else if (other.gameObject.CompareTag("Bullet")){
-    //        //LevelManager.manager.IncreaseScore(1);
-    //        int rand = Random.Range(1,3);
-    //        Destroy(other.gameObject);
-    //        Destroy(gameObject);
-    //        if(rand == 1)
-    //        {
-    //            Instantiate(powerup, transform.position, Quaternion.identity);    
-    //        }
-    //    } 
-    //}
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            //LevelManager.manager.GameOver();
+            Destroy(other.gameObject);
+            target = null;
+        }
+        else if (other.gameObject.CompareTag("Bullet")){
+            //LevelManager.manager.IncreaseScore(1);
+            int rand = Random.Range(1,3);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            //if(rand == 1)
+            //{
+            //    Instantiate(powerup, transform.position, Quaternion.identity);    
+            //}
+        } 
+    }
 }

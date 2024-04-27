@@ -9,8 +9,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private bool canSpawn = false;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float countdown = 2f;
-    [SerializeField] private int waveNumber = 10;
+    [SerializeField] public int waveNumber = 10;
     [SerializeField] private int waves = 0;
+    public int _verify = 0;
 
     private void Update()
     {
@@ -63,6 +64,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private IEnumerator SpawnWave(){
+
         for (int i = 0; i < waveNumber; i++)
         {
             int rand = Random.Range(0, enemyPrefabs.Length-1);
