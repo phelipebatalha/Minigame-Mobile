@@ -9,6 +9,10 @@ public class Enemy : MonoBehaviour
     public float rotateSpeed = 0.025f;
     private Rigidbody rb;
     public GameObject powerup;
+    private void Awake()
+    {
+        SpawnControl.Instance.AddEnemy();
+    }
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
