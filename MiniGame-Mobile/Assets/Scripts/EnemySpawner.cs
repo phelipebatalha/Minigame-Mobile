@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private bool canSpawn = false;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float countdown = 2f;
-    [SerializeField] public int waveNumber = 10;
+    [SerializeField] private int waveNumber = 10;
     [SerializeField] private int waves = 0;
     public int _verify = 0;
 
