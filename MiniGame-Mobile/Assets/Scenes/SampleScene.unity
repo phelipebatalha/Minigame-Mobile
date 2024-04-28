@@ -570,7 +570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121550392}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.003171328, y: 0.9852857, z: -0.1698936, w: -0.018391887}
+  m_LocalRotation: {x: -0.0031713261, y: 0.9852857, z: -0.16989356, w: -0.01839188}
   m_LocalPosition: {x: 0, y: 1.96, z: 6.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2575,7 +2575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.003171328, y: 0.9852857, z: -0.1698936, w: -0.018391887}
+  m_LocalRotation: {x: -0.0031713261, y: 0.9852857, z: -0.16989356, w: -0.01839188}
   m_LocalPosition: {x: 0, y: 1.96, z: 6.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3117,10 +3117,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6fa287c5893ba6b4c9987ba76e10e822, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1369895067}
+      addedObject: {fileID: 1369895074}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6fa287c5893ba6b4c9987ba76e10e822, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1369895070}
+      addedObject: {fileID: 1369895073}
   m_SourcePrefab: {fileID: 100100000, guid: 6fa287c5893ba6b4c9987ba76e10e822, type: 3}
 --- !u!1 &1174266374
 GameObject:
@@ -3683,24 +3683,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6fa287c5893ba6b4c9987ba76e10e822, type: 3}
   m_PrefabInstance: {fileID: 1173322800}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1369895067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &1369895072 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6fa287c5893ba6b4c9987ba76e10e822, type: 3}
+  m_PrefabInstance: {fileID: 1173322800}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369895066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56da042838327ca4e832e4c750d68768, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _acceleration: 3
-  _deceleration: 3
-  _maximumWalkVelocity: 1
-  _maximumRunVelocity: 3
-  _particle: {fileID: 0}
---- !u!114 &1369895070
+--- !u!114 &1369895073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3714,11 +3702,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _rotateSpeed: 25
---- !u!4 &1369895072 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6fa287c5893ba6b4c9987ba76e10e822, type: 3}
-  m_PrefabInstance: {fileID: 1173322800}
+--- !u!114 &1369895074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369895066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56da042838327ca4e832e4c750d68768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _acceleration: 3
+  _deceleration: 3
+  _maximumWalkVelocity: 3
+  _maximumRunVelocity: 3
+  _particle: {fileID: 0}
 --- !u!1 &1447403573
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,6 +3994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1745211664}
+  - component: {fileID: 1745211665}
   m_Layer: 0
   m_Name: GunPoint
   m_TagString: Untagged
@@ -4009,13 +4010,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745211663}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.273, y: 1.11, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1369895072}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1745211665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745211663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c7840d65da5c0419c013374af8fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 1745211664}
+  bulletPrefab: {fileID: 187077730522347676, guid: f6b8dbbb5478a6842869233e586d11a8, type: 3}
+  gun: {fileID: 0}
+  bulletSpeed: 10
 --- !u!1 &1821958125
 GameObject:
   m_ObjectHideFlags: 0
@@ -4648,8 +4665,8 @@ MonoBehaviour:
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_DeadZoneWidth: 0.18
-  m_DeadZoneHeight: 0.21
+  m_DeadZoneWidth: 0.11
+  m_DeadZoneHeight: 0.16
   m_SoftZoneWidth: 0.83
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
