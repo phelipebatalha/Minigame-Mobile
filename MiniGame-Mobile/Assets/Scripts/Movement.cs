@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
         Vector3 dir = Vector3.zero;
         Vector3 rot = Vector3.zero;
 
+
         rot.y = Input.acceleration.x;
         dir.z = Input.acceleration.y;
 
