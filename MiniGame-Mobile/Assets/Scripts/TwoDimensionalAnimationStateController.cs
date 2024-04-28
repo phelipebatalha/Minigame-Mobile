@@ -40,6 +40,7 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
             _isCasting = true;
             Debug.Log("SKILL 1");
         }
+        _isCasting = false;
     }
     void SwipeDown()
     {
@@ -48,6 +49,8 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
             Debug.Log("SKILL 2");
             isCasting2 = true;
         }
+        _isCasting = false;
+        isCasting2 = false;
     }
     void ChangeVelocity(bool _frente, bool _tras, bool _esquerda, bool _direita, bool _corrida, float velocidademaxima)
     {
@@ -172,45 +175,47 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
     }
     void Attack()
     {
-         if(Input.touchCount == 1)
-		{
-            Debug.Log("Entrei");
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+         if (Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
+            
+            if (touch.phase == TouchPhase.Began)
             {
-                Debug.Log("Inicio Swipe");
-                startingTouch = Input.GetTouch(0).position;
+                Debug.Log("Início do Swipe");
+                startingTouch = touch.position;
                 isSwipping = true;
             }
-			if (isSwipping)
-			{
-                Debug.Log("Entrei 1");
-				Vector2 diff = Input.GetTouch(0).position - startingTouch;
-				diff = new Vector2(diff.x / Screen.width, diff.y / Screen.width);
-				if(diff.magnitude > 0.01f)
-				{
-                    Debug.Log("Entrei 2");
-					if(Mathf.Abs(diff.y) > Mathf.Abs(diff.x))
-					{
-						if(diff.y < 0)
-						{
-							SwipeDown();
-						}
-						else
-						{
-                            Debug.Log("Entrei 3");
-							SwipeUp();
-						}
-					}
-                    isSwipping = false;
-                }
-                
-                else if (Input.GetTouch(0).phase == TouchPhase.Ended)
+
+            if (isSwipping && touch.phase == TouchPhase.Moved) // Verificar enquanto o movimento ocorre
+            {
+                Debug.Log("Continuando Swipe");
+                Vector2 diff = touch.position - startingTouch;
+                diff = new Vector2(diff.x / Screen.width, diff.y / Screen.width);
+
+                if (diff.magnitude > 0.01f) // Limite para evitar detecção acidental
                 {
-                    isSwipping = false;
-                    Debug.Log("Fim Swipe");
+                    if (Mathf.Abs(diff.y) > Mathf.Abs(diff.x))
+                    {
+                        if (diff.y < 0)
+                        {
+                            SwipeDown(); // Detecção de Swipe para baixo
+                        }
+                        else
+                        {
+                            SwipeUp(); // Detecção de Swipe para cima
+                            Debug.Log("Foi pra cima");
+                        }
+                    }
                 }
             }
+
+            if (touch.phase == TouchPhase.Ended) // Determinar quando o toque termina
+            {
+                Debug.Log("Fim do Swipe");
+                isSwipping = false;
+            }
         }
+
 
         //if (Input.touchCount > 0)
         //{
