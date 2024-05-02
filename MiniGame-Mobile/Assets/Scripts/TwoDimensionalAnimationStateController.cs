@@ -10,7 +10,7 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
     public float _maximumWalkVelocity = 3.0f, _maximumRunVelocity = 3.0f;
     public GameObject _particle;
     private bool _frente, _tras, _esquerda, _direita, _corrida;
-    private bool _isCasting, isCasting2;
+    public bool _isCasting, isCasting2;
     private bool _slideStart;
     private float _jumpStart;
     private bool isSwipping = false;
