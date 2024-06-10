@@ -4,12 +4,15 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _rotateSpeed;
-    
-    void Update()
+    private Vector3 dir, rot;
+    void Awake()
     {
         Vector3 dir = Vector3.zero;
         Vector3 rot = Vector3.zero;
-
+    }
+    
+    void Update()
+    {
         rot.y = Input.acceleration.x;
         dir.z = Input.acceleration.y;
 
