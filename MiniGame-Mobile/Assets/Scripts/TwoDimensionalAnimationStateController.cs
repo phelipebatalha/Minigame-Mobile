@@ -184,6 +184,8 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
                 Debug.Log("Início do Swipe");
                 startingTouch = touch.position;
                 isSwipping = true;
+                HUD.Instance.CastMana(1f);
+                HUD.Instance.AtacckCooldown(20f);
             }
 
             if (isSwipping && touch.phase == TouchPhase.Moved) // Verificar enquanto o movimento ocorre
