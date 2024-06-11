@@ -25,8 +25,8 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
     }
     void VariableAtribbution()
     {
-        _frente = -Input.acceleration.x > 0.5;
-        _tras = -Input.acceleration.x < -0.5;
+        _frente = -Input.acceleration.z > 0.5;
+        _tras = -Input.acceleration.z < -0.5;
         _esquerda = Input.acceleration.y < -0.5;
         _direita = Input.acceleration.y > 0.5;
         //_corrida = Input.GetKey(KeyCode.LeftShift);

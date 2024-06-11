@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float spawnRate = 1f;
-    [SerializeField] private  GameObject[] enemyPrefabs;
+    [SerializeField] private  GameObject[] enemyPrefabs,_spawners;
     [SerializeField] private bool canSpawn = false;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float countdown = 2f;
@@ -15,15 +15,15 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        //Touch();
+        Touch();
         if (canSpawn)
         {
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //{
-                //canSpawn = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                canSpawn = true;
                 StartCoroutine(Spawner());
                 canSpawn = false;
-            //}
+            }
         }
     }
     void Touch(){
@@ -70,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
             int rand = Random.Range(0, enemyPrefabs.Length-1);
             GameObject enemyToSpawn = enemyPrefabs[rand];
 
-            Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+            Instantiate(enemyToSpawn, _spawners[rand].transform.position, Quaternion.identity);
             yield return new WaitForSeconds(spawnRate);
         }
         waveNumber++;
