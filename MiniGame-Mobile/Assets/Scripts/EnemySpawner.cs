@@ -1,46 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float spawnRate = 1f;
     [SerializeField] private  GameObject[] enemyPrefabs,_spawners;
-    [SerializeField] private bool canSpawn = false;
+    public bool canSpawn = false;
+    public static EnemySpawner EnemySpawnerInstance;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float countdown = 2f;
     [SerializeField] private int waveNumber = 10;
     [SerializeField] private int waves = 0;
     public int _verify = 0;
-
-    private void Update()
+    void Awake()
     {
-        Touch();
-        if (canSpawn)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                canSpawn = true;
-                StartCoroutine(Spawner());
-                canSpawn = false;
-            }
+        if(EnemySpawnerInstance == null)
+        EnemySpawnerInstance = this;
+        else{
+            Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
     }
-    void Touch(){
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if(touch.phase == TouchPhase.Began){
-                canSpawn = true;
-            }
-            if(touch.phase == TouchPhase.Ended){
-                canSpawn = false;
-            }
-        }
+    public void Spawning()
+    {
+        canSpawn = true;
+        StartCoroutine(Spawner());
+
     }
+
+    //void Touch(){
+    //    if (Input.touchCount > 0)
+    //    {
+    //        Touch touch = Input.GetTouch(0);
+    //        if(touch.phase == TouchPhase.Began){
+    //            canSpawn = true;
+    //        }
+    //        if(touch.phase == TouchPhase.Ended){
+    //            canSpawn = false;
+    //        }
+    //    }
+    //}
     private IEnumerator Spawner () 
     {
-        yield return StartCoroutine(ShowCountdown()); // Mostra a contagem regressiva antes de iniciar a onda
+        
 
         if (waves % 5 == 0 && waves > 0)
         {
@@ -53,13 +57,14 @@ public class EnemySpawner : MonoBehaviour
 
         countdown = timeBetweenWaves;
         waves++;
+        yield return StartCoroutine(ShowCountdown()); // Mostra a contagem regressiva antes de iniciar a onda
         canSpawn = false;
     }
 
      private IEnumerator ShowCountdown()
     {
         
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(10f);
 
     }
 
@@ -79,9 +84,9 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnStrongWave()
     {
-        GameObject enemyToSpawn = enemyPrefabs[3];
+        GameObject enemyToSpawn = enemyPrefabs[2];
 
-        Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+        Instantiate(enemyToSpawn, _spawners[0].transform.position, Quaternion.identity);
         yield return new WaitForSeconds(spawnRate);
 
         waveNumber++;

@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
  
     void Awake()
     {
+        HUD.Instance.AtacckCooldown(-20f);
         Destroy(gameObject, life);
     }
  

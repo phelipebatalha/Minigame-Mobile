@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4914059835193874697}
   - component: {fileID: 3425027038213501655}
   - component: {fileID: 238143498684987825}
-  - component: {fileID: 8851481464774317753}
   - component: {fileID: 5196295857583286606}
+  - component: {fileID: 7511605866731564780}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemy
@@ -107,22 +107,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8851481464774317753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774096208567994170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1275822a7238624b869c54c7dd15da7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 3
-  rotateSpeed: 0.025
-  powerup: {fileID: 0}
 --- !u!54 &5196295857583286606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -150,3 +134,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &7511605866731564780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774096208567994170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1275822a7238624b869c54c7dd15da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 3
+  rotateSpeed: 0.025
+  powerup: {fileID: 0}

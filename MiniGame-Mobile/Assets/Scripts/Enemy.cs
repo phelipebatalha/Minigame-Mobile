@@ -8,14 +8,12 @@ public class Enemy : MonoBehaviour
     public float speed = 3f;
     public float rotateSpeed = 0.025f;
     private Rigidbody rb;
-    public GameObject powerup;
-    private void Awake()
-    {
-        SpawnControl.Instance.AddEnemy();
-    }
-    public void Start()
+    //public GameObject powerup;
+    private EnemySpawner Spawner; 
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void Update()
@@ -59,14 +57,15 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             //LevelManager.manager.GameOver();
-            Destroy(other.gameObject);
+            HUD.Instance.TakeDamage(20f);
             target = null;
         }
         else if (other.gameObject.CompareTag("Bullet")){
             //LevelManager.manager.IncreaseScore(1);
             int rand = Random.Range(1,3);
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            
+            Spawner._verify -= 1;
             //if(rand == 1)
             //{
             //    Instantiate(powerup, transform.position, Quaternion.identity);    
