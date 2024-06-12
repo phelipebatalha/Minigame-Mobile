@@ -25,10 +25,10 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
     }
     void VariableAtribbution()
     {
-        _frente = -Input.acceleration.z > 0.5;
-        _tras = -Input.acceleration.z < -0.5;
-        _esquerda = Input.acceleration.y < -0.5;
-        _direita = Input.acceleration.y > 0.5;
+        _frente = -Input.acceleration.z >0.5f;
+        _tras = -Input.acceleration.z < 0.5f;
+        _esquerda = Input.acceleration.x > 0.5;
+        _direita = Input.acceleration.x < -0.5;
         //_corrida = Input.GetKey(KeyCode.LeftShift);
         //_cast = Input.GetKey(KeyCode.Mouse0);
     }
@@ -175,6 +175,10 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
     }
     void Attack()
     {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            SwipeUp();
+        }
          if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -216,6 +220,7 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
                 Debug.Log("Fim do Swipe");
                 isSwipping = false;
             }
+            
         }
 
 
@@ -243,6 +248,7 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
 
         _animator.SetFloat(VelocityZHash, _velocidadeZ);
         _animator.SetFloat(VelocityXHash, _velocidadeX);
+        
     }
     //IEnumerator _Caster()
     //{

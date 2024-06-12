@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _rotateSpeed;
     private Vector3 dir, rot;
+    public float inclination = 0.005f;
     void Awake()
     {
         Vector3 dir = Vector3.zero;
@@ -33,9 +34,9 @@ public class Movement : MonoBehaviour
     }
     void AjusteDir()
     {
-        if (dir.z > 0.001f)
+        if (dir.z > inclination)
             dir.z = 0.01f;
-        else if (dir.z < 0.001f)
+        else if (dir.z < inclination)
             dir.z = -0.01f;
         else dir.z = 0f;
     }

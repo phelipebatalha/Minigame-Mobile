@@ -24,9 +24,9 @@ public class HUD : MonoBehaviour
     {
         if(button1 != null)
         {
-                button1.gameObject.SetActive(!EnemySpawner.EnemySpawnerInstance.canSpawn);
+            button1.gameObject.SetActive(!EnemySpawner.EnemySpawnerInstance.canSpawn);
         }
-        Debug.Log(quest.isActive);
+
     }
     void Awake(){
         if(Instance == null)

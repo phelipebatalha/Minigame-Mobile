@@ -5,29 +5,24 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float life = 3;
-    public Quest quest;
+    public Player player;
     void Awake()
     {
         HUD.Instance.AtacckCooldown(-20f);
         Destroy(gameObject, life);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
  
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if(collision.gameObject != null)
         {
-            if(quest.isActive)
+            if (collision.gameObject.tag == "Enemy" )
             {
-                quest.goal.EnemyKilled();
-                if(quest.goal.IsReached())
-                {
-                    HUD.Instance.points += 50;
-                    quest.Complete();
-                }
+                player.EnemyKill();
+                Destroy(collision.gameObject);
             }
-            HUD.Instance.points += 5;
-            Destroy(collision.gameObject);
+                Destroy(gameObject);
         }
-            Destroy(gameObject);
     }
 }

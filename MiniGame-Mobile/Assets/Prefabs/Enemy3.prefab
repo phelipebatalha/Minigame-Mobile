@@ -149,4 +149,4 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 3
   rotateSpeed: 0.025
-  powerup: {fileID: 0}
+  Spawner: {fileID: 0}
