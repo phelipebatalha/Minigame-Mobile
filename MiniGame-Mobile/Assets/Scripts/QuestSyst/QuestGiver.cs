@@ -12,11 +12,12 @@ public class QuestGiver : MonoBehaviour
     public Text titleText;
     public Text descriptionText;
     public Text pointsText;
-    //public Bullet bullet;
+    public Player Player;
 
     public void closeMissionTable()
     {
         questTable.SetActive(!questTable.activeSelf);
+        questWindow.SetActive(false);
     }
     public void OpenQuestWindow()
     {
@@ -29,6 +30,6 @@ public class QuestGiver : MonoBehaviour
     {
         questWindow.SetActive(false);
         quest.isActive = true;
-        //bullet.quest = quest;
+        Player.quest = quest;
     }
 }
