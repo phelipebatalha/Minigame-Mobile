@@ -12,6 +12,9 @@ public class HUD : MonoBehaviour
     public static HUD Instance;
     public float healthAmount = 100f, manaAmount = 2f, cdAmount = 20f;
     public bool canButton = true;
+    public Text pointsText;
+    public int points = 0; 
+    public Quest quest;
 
     public void SpawnButton()
     {   
@@ -23,7 +26,7 @@ public class HUD : MonoBehaviour
         {
                 button1.gameObject.SetActive(!EnemySpawner.EnemySpawnerInstance.canSpawn);
         }
-        
+        Debug.Log(quest.isActive);
     }
     void Awake(){
         if(Instance == null)
