@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private float _rotateSpeed;
+    public float _speed = 5f;
+    public float _rotateSpeed = 100f;
     private Vector3 dir, rot;
     public float inclination = 0.005f;
     void Awake()
