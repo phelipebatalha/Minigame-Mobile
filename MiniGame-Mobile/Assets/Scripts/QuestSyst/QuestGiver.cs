@@ -13,7 +13,10 @@ public class QuestGiver : MonoBehaviour
     public Text descriptionText;
     public Text pointsText;
     public Player Player;
-
+    void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
     public void closeMissionTable()
     {
         questTable.SetActive(!questTable.activeSelf);

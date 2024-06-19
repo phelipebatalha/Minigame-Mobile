@@ -19,6 +19,7 @@ public class QuestGoal
             currentAmount++;
         }
     }
+    
     public void SpellCasted()
     {
         if(goalType == GoalType.Cast)
