@@ -15,10 +15,15 @@ public class HUD : MonoBehaviour
     public Text pointsText;
     public int points = 0, lastPoints = 0; 
     public Quest quest;
+    public GameObject configPainel;
 
     public void SpawnButton()
     {   
         EnemySpawner.EnemySpawnerInstance.Spawning();
+    }
+    public void ConfigButton()
+    {
+        configPainel.SetActive(!configPainel.activeInHierarchy);
     }
     void Update()
     {
