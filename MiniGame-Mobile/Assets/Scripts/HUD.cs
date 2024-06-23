@@ -54,6 +54,7 @@ public class HUD : MonoBehaviour
         healthBar.fillAmount = healthAmount / 100f;
         if(healthAmount <= 0f)
         {
+            HighscoreTable.ScoresRanking.AddHighscoreEntry(points, HighscoreTable.ScoresRanking.playerName);
             SceneManager.LoadScene("Menu");
         }
     }

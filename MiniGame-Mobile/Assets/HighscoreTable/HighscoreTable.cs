@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,18 @@ public class HighscoreTable : MonoBehaviour {
 
     private Transform entryContainer;
     private Transform entryTemplate;
+    public static HighscoreTable ScoresRanking;
+    public PlayerNameInput playerNameInput;
     private List<Transform> highscoreEntryTransformList;
+    public string playerName;
 
-    private void Awake() {
+    public void Awake() {
+        if(ScoresRanking == null)
+        ScoresRanking = this;
+        else{
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
         entryContainer = transform.Find("highscoreEntryContainer");
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
 
@@ -44,7 +54,11 @@ public class HighscoreTable : MonoBehaviour {
             CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
         }
     }
-
+    void Start()
+    {
+        if(playerNameInput.GetPlayerName() != null)
+        playerName = playerNameInput.GetPlayerName();
+    }
     private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList) {
         float templateHeight = 31f;
         Transform entryTransform = Instantiate(entryTemplate, container);
@@ -102,7 +116,7 @@ public class HighscoreTable : MonoBehaviour {
         transformList.Add(entryTransform);
     }
 
-    private void AddHighscoreEntry(int score, string name) {
+    public void AddHighscoreEntry(int score, string name) {
         // Create HighscoreEntry
         HighscoreEntry highscoreEntry = new HighscoreEntry { score = score, name = name };
         
