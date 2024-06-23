@@ -4,6 +4,7 @@ using System.Data.Common;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
@@ -35,8 +36,7 @@ public class HUD : MonoBehaviour
         {
             UpdatePoints(points);
         }
-    }
-    public void UpdatePoints(int newPoints)
+    }    public void UpdatePoints(int newPoints)
     {
         pointsText.text = "" + points;
     }
@@ -52,6 +52,10 @@ public class HUD : MonoBehaviour
     {
         healthAmount -= damage;
         healthBar.fillAmount = healthAmount / 100f;
+        if(healthAmount <= 0f)
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
     public void Heal(float healingAmount)
     {
