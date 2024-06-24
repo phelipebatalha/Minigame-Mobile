@@ -29,19 +29,15 @@ public class HighscoreTable : MonoBehaviour {
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
         if (highscores == null) {
-            // There's no stored table, initialize
-            Debug.Log("Initializing table with default values...");
+            Debug.Log("Inicializando com valores default");
             AddHighscoreEntry(1, "EXP");
-            // Reload
             jsonString = PlayerPrefs.GetString("highscoreTable");
             highscores = JsonUtility.FromJson<Highscores>(jsonString);
         }
 
-        // Sort entry list by Score
         for (int i = 0; i < highscores.highscoreEntryList.Count; i++) {
             for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++) {
-                if (highscores.highscoreEntryList[j].score > highscores.highscoreEntryList[i].score) {
-                    // Swap
+                if (highscores.highscoreEntryList[j].score > highscores.highscoreEntryList[i].score) {                  
                     HighscoreEntry tmp = highscores.highscoreEntryList[i];
                     highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
                     highscores.highscoreEntryList[j] = tmp;
@@ -53,11 +49,6 @@ public class HighscoreTable : MonoBehaviour {
         foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList) {
             CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
         }
-    }
-    void Start()
-    {
-        if(playerNameInput.GetPlayerName() != null)
-        playerName = playerNameInput.GetPlayerName();
     }
     private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList) {
         float templateHeight = 31f;
@@ -86,17 +77,14 @@ public class HighscoreTable : MonoBehaviour {
         string name = highscoreEntry.name;
         entryTransform.Find("nameText").GetComponent<Text>().text = name;
 
-        // Set background visible odds and evens, easier to read
         entryTransform.Find("background").gameObject.SetActive(rank % 2 == 1);
         
-        // Highlight First
         if (rank == 1) {
             entryTransform.Find("posText").GetComponent<Text>().color = Color.green;
             entryTransform.Find("scoreText").GetComponent<Text>().color = Color.green;
             entryTransform.Find("nameText").GetComponent<Text>().color = Color.green;
         }
 
-        // Set tropy
         switch (rank) {
         default:
             entryTransform.Find("trophy").gameObject.SetActive(false);
@@ -117,24 +105,19 @@ public class HighscoreTable : MonoBehaviour {
     }
 
     public void AddHighscoreEntry(int score, string name) {
-        // Create HighscoreEntry
         HighscoreEntry highscoreEntry = new HighscoreEntry { score = score, name = name };
         
-        // Load saved Highscores
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
         if (highscores == null) {
-            // There's no stored table, initialize
             highscores = new Highscores() {
                 highscoreEntryList = new List<HighscoreEntry>()
             };
         }
 
-        // Add new entry to Highscores
         highscores.highscoreEntryList.Add(highscoreEntry);
 
-        // Save updated Highscores
         string json = JsonUtility.ToJson(highscores);
         PlayerPrefs.SetString("highscoreTable", json);
         PlayerPrefs.Save();
@@ -144,9 +127,6 @@ public class HighscoreTable : MonoBehaviour {
         public List<HighscoreEntry> highscoreEntryList;
     }
 
-    /*
-     * Represents a single High score entry
-     * */
     [System.Serializable] 
     private class HighscoreEntry {
         public int score;

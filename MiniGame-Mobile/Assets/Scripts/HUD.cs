@@ -46,16 +46,20 @@ public class HUD : MonoBehaviour
         else{
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
     public void TakeDamage(float damage)
     {
-        healthAmount -= damage;
-        healthBar.fillAmount = healthAmount / 100f;
-        if(healthAmount <= 0f)
+        if(healthAmount > 0)
         {
-            HighscoreTable.ScoresRanking.AddHighscoreEntry(points, HighscoreTable.ScoresRanking.playerName);
+            healthAmount -= damage;
+            healthBar.fillAmount = healthAmount / 100f;
+        }
+        else if(healthAmount <= 0f)
+        {
+            HighscoreTable.ScoresRanking.AddHighscoreEntry(points,PlayerNameInput.PlayerNameInstance.GetPlayerName());
             SceneManager.LoadScene("Menu");
+            SceneManager.UnloadSceneAsync("Jogo_Official");
+            
         }
     }
     public void Heal(float healingAmount)

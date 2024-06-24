@@ -5,22 +5,28 @@ public class PlayerNameInput : MonoBehaviour {
     public InputField nameInputField;
     public Button confirmButton;
     public Text displayText;
+    public static PlayerNameInput PlayerNameInstance;
 
     private string playerName;
 
+    void Awake()
+    {
+        if(PlayerNameInstance == null)
+        PlayerNameInstance = this;
+        else{
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
     void Start() {
-        // Adicionar listener ao botão de confirmação
         confirmButton.onClick.AddListener(OnConfirmButtonClick);
     }
 
     void OnConfirmButtonClick() {
-        // Capturar o nome do jogador do campo de entrada de texto
         playerName = nameInputField.text;
 
-        // Exibir o nome do jogador (opcional)
         displayText.text = "Player Name: " + playerName;
 
-        // Você pode agora usar playerName como quiser no seu jogo
         Debug.Log("Player Name: " + playerName);
     }
 

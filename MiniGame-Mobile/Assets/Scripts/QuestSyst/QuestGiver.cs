@@ -11,9 +11,11 @@ public class QuestGiver : MonoBehaviour
     public Quest quest1;
     public Quest quest2;
     public Quest quest3;
+    public Quest quest4;
     public Button acceptButton1;
     public Button acceptButton2;
     public Button acceptButton3;
+    public Button acceptButton4;
     public Text titleText;
     public Text descriptionText;
     public Text pointsText;
@@ -61,6 +63,10 @@ public class QuestGiver : MonoBehaviour
     {
         OpenQuestWindow(quest3, acceptButton3);
     }
+    public void OpenQuestWindow4()
+    {
+        OpenQuestWindow(quest4, acceptButton4);
+    }
     
     public void AcceptQuest1()
     {
@@ -78,5 +84,10 @@ public class QuestGiver : MonoBehaviour
     {
         AcceptQuest(quest3);
         acceptButton3.gameObject.SetActive(false);
+    }
+    public void AcceptQuest4()
+    {
+        AcceptQuest(quest4);
+        acceptButton4.gameObject.SetActive(false);
     }
 }
