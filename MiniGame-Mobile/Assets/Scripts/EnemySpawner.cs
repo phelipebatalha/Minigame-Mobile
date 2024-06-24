@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float countdown = 2f;
     [SerializeField] private int waveNumber = 10;
-    [SerializeField] private int waves = 0;
+    public int waves = 0;
     public int _verify = 0;
     void Awake()
     {

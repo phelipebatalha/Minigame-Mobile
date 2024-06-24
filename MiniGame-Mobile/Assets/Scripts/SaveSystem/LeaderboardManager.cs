@@ -35,6 +35,7 @@ public class LeaderboardManager : MonoBehaviour
         leaderboard.AddEntry(new LeaderboardEntry(playerName, score));
         SaveLeaderboard();
         CheckAchievements(playerName, score);
+        achievementManager.SaveAchievements();
     }
 
     private void CheckAchievements(string playerName, int score)
