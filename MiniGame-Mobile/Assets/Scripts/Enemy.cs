@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
             if(other.gameObject.CompareTag("Player"))
             {
                 //LevelManager.manager.GameOver();
-                if(HUD.Instance.healthAmount > 0)
+                //if(HUD.Instance.healthAmount > 0)
                 HUD.Instance.TakeDamage(20f);
                 target = null;
             }
