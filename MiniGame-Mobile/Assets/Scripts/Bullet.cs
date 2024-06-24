@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
         HUD.Instance.AtacckCooldown(-20f);
         Destroy(gameObject, life);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player.SpellCast();
+        player.SpellCast2();
     }
  
     void OnCollisionEnter(Collision collision)
