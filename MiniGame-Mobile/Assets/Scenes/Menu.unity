@@ -357,7 +357,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74887911}
-  - component: {fileID: 74887912}
   m_Layer: 0
   m_Name: HighscoreTable
   m_TagString: Untagged
@@ -394,20 +393,6 @@ RectTransform:
   m_AnchoredPosition: {x: -95.99988, y: -53.999878}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &74887912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74887910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f281e6fa0c3c89947a22aac9de1bc66d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNameInput: {fileID: 0}
-  playerName: 
 --- !u!1 &84920506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Jogo_Official
-  rank: {fileID: 0}
+  rank: {fileID: 788903220}
 --- !u!114 &350101212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,6 +1608,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765630753}
   m_CullTransparentMesh: 1
+--- !u!1 &788903220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788903222}
+  - component: {fileID: 788903221}
+  m_Layer: 0
+  m_Name: HighscoreTableController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &788903221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788903220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f281e6fa0c3c89947a22aac9de1bc66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entryContainer: {fileID: 793289263}
+  entryTemplate: {fileID: 1381325785}
+  playerNameInput: {fileID: 84920508}
+  playerName: 
+--- !u!4 &788903222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788903220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1170, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &793289262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 793289263}
+  - component: {fileID: 793289264}
   m_Layer: 0
   m_Name: highscoreEntryContainer
   m_TagString: Untagged
@@ -1659,6 +1693,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 109}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &793289264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793289262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ad37b013515a34b84ba56c14e6c23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isContainer: 1
 --- !u!1 &1004118566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,6 +2567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1381325785}
+  - component: {fileID: 1381325786}
   m_Layer: 0
   m_Name: highscoreEntryTemplate
   m_TagString: Untagged
@@ -2551,6 +2599,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1381325786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381325784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ad37b013515a34b84ba56c14e6c23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isContainer: 0
 --- !u!1 &1423451446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,3 +3342,4 @@ SceneRoots:
   - {fileID: 1432840943}
   - {fileID: 281810234}
   - {fileID: 1376925825}
+  - {fileID: 788903222}

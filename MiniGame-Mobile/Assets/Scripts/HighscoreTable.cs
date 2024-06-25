@@ -6,13 +6,21 @@ using UnityEngine.UI;
 
 public class HighscoreTable : MonoBehaviour {
 
-    private Transform entryContainer;
-    private Transform entryTemplate;
+    [SerializeField] private Transform entryContainer;
+    [SerializeField] private Transform entryTemplate;
     public static HighscoreTable ScoresRanking;
     public PlayerNameInput playerNameInput;
     private List<Transform> highscoreEntryTransformList;
     public string playerName;
 
+    public void SetTemplate(Transform temp)
+    {
+        entryTemplate = temp;
+    }
+    public void SetContainer(Transform tem)
+    {
+        entryContainer = tem;
+    }
     public void Awake() {
         if(ScoresRanking == null)
         ScoresRanking = this;
@@ -20,8 +28,6 @@ public class HighscoreTable : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        entryContainer = transform.Find("highscoreEntryContainer");
-        entryTemplate = entryContainer.Find("highscoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
 
