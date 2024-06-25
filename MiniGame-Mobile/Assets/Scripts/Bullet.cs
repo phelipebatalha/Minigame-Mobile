@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
         HUD.Instance.AtacckCooldown(-20f);
         Destroy(gameObject, life);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player.SpellCast();
+        player.SpellCast2();
     }
  
     void OnCollisionEnter(Collision collision)
@@ -20,6 +22,7 @@ public class Bullet : MonoBehaviour
             if (collision.gameObject.tag == "Enemy" )
             {
                 player.EnemyKill();
+                player.EnemyKill2();
                 Destroy(collision.gameObject);
             }
                 Destroy(gameObject);

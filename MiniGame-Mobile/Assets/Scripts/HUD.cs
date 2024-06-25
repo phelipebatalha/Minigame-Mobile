@@ -4,6 +4,7 @@ using System.Data.Common;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class HUD : MonoBehaviour
     public Quest quest;
     public GameObject configPainel;
 
+    public void ReStart()
+    {
+        Heal(100f);
+        points = 0;
+        UpdatePoints(0);
+    }
     public void SpawnButton()
     {   
         EnemySpawner.EnemySpawnerInstance.Spawning();
@@ -35,7 +42,21 @@ public class HUD : MonoBehaviour
         {
             UpdatePoints(points);
         }
-    }
+        if(Input.GetKey(KeyCode.X))
+        {
+            HighscoreTable.ScoresRanking.AddHighscoreEntry(points,PlayerNameInput.PlayerNameInstance.GetPlayerName());
+            SceneManager.LoadScene("Menu");
+            ReStart();
+            //SceneManager.UnloadSceneAsync("Jogo_Official");
+        }
+        if(healthAmount <= 0)
+        {
+            HighscoreTable.ScoresRanking.AddHighscoreEntry(points,PlayerNameInput.PlayerNameInstance.GetPlayerName());
+            SceneManager.LoadScene("Menu");
+            ReStart();
+            //SceneManager.UnloadSceneAsync("Jogo_Official");
+        }
+    }    
     public void UpdatePoints(int newPoints)
     {
         pointsText.text = "" + points;
@@ -50,13 +71,18 @@ public class HUD : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        healthAmount -= damage;
-        healthBar.fillAmount = healthAmount / 100f;
+        if(healthAmount > 0)
+        {
+            healthAmount -= damage;
+            healthBar.fillAmount = healthAmount / 100f;
+        }
+            
     }
     public void Heal(float healingAmount)
     {
         healthAmount += healingAmount;
         healthAmount = Mathf.Clamp(healthAmount, 0, 100);
+        healthBar.fillAmount = healthAmount / 100f;
     }
     public void CastMana(float mana)
     {

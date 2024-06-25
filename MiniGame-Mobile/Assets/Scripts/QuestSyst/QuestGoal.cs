@@ -19,10 +19,23 @@ public class QuestGoal
             currentAmount++;
         }
     }
-    
+    public void EnemyKilled2()
+    {
+        if(goalType == GoalType.KillHard)
+        {
+            currentAmount++;
+        }
+    }
     public void SpellCasted()
     {
         if(goalType == GoalType.Cast)
+        {
+            currentAmount++;
+        }
+    }
+    public void SpellCasted2()
+    {
+        if(goalType == GoalType.CastHard)
         {
             currentAmount++;
         }
@@ -31,5 +44,7 @@ public class QuestGoal
 public enum GoalType
 {
     Kill,
-    Cast
+    Cast,
+    CastHard,
+    KillHard
 }

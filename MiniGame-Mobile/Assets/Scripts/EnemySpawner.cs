@@ -21,7 +21,6 @@ public class EnemySpawner : MonoBehaviour
         else{
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
     public void Spawning()
     {
